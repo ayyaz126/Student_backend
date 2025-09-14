@@ -1,0 +1,88 @@
+Node.js kya hai
+Node.js ek JavaScript runtime environment hai jo Chrome V8 engine par bana hai
+
+
+iska matlab
+Browser ke bahar bhi tum JavaScript code run kar sakte ho
+Browser mein JS sirf DOM manipulate aur client-side tasks karti hai
+lekin Node.js ke through tum server-side kaam kar sakte ho API DB handling file system
+
+
+Kyun use hota hai
+
+Single language 
+Frontend = JavaScript
+Backend = JavaScript (Node.js)
+matlab developer ko ek hi language aani chahiye.
+
+V8 Engine kya hai
+V8 ek JavaScript engine hai jo Google ne banaya hai
+ye Chrome browser aur Node.js dono mein use hota hai.
+ska kaam: JavaScript code ko fast machine code computer samajhne layak code mein convert karna
+
+Fast & Lightweight
+Node.js ka engine (V8) bahut fast hai
+Non-blocking architecture ki wajah se ek time pe thousands of requests handle kar leta hai.
+
+NPM ecosystem
+Node ke paas duniya ka sabse bada package library system (npm)  hai
+har problem ke liye ready-made package mil jata hai (e.g., express, bcrypt, jwt)
+
+Use cases
+REST APIs
+Real-time apps (chat apps, live notifications)
+Streaming services (Netflix, YouTube)
+
+
+Event Loop aur Non-Blocking I/O
+
+Blocking Model:
+
+agar ek server file read kar raha hai, to dusra request tab tak wait karega jab tak wo file read complete na ho jaye.
+matlab har kaam line by line hoga.
+
+Node.js Non-Blocking Model
+
+Node.js mein event loop hota hai jo har request ko alag track karta hai.
+agar ek request slow operation (like DB query, file read) kar rahi hai,
+to Node.js usko background mein bhej deta hai aur agla request foran handle kar leta hai.
+
+ek customer ne pizza order kiya time lagta hai
+waiter agle customer ka order bhi le lega wait nahi karega
+jab pizza ready ho jata hai, waiter usko pehle customer ko serve kar deta hai
+Node.js = JS ka server-side runtime
+
+Event loop = har request ko efficiently handle karna
+Non-blocking I/O = ek kaam ke slow hone pe dusre ka wait na karna
+
+
+step 1
+npm init -y
+npm install nodemon --save-dev
+
+
+Modules in Node.js
+
+Module = chhota code ka piece jo alag file me hota hai, aur tum usko kahin aur import/export karke use kar sakte ho.
+Node.js mein teen types ke modules hote hain:
+
+Local Modules (tum khud banate ho)
+
+Built-in Modules (Node.js ke sath aate hain, jaise fs, path, os, http)
+
+Third-party Modules (npm se install karte ho, jaise express, bcrypt, lodash)
+
+
+MVC Model
+
+MOdel view controller 
+project/
+│-- controllers/
+│   └── userController.js
+│-- routes/
+│   └── userRoutes.js
+│-- models/
+│   └── userModel.js  
+│-- middlewares/
+│   └── errorHandler.js
+│-- index.js server ka entry point
