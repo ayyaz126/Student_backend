@@ -1,0 +1,232 @@
+Database Kya Hota Hai
+
+ Database ek jagah hai jahan hum data store karte hain in an organized way, taake usko easily access,
+ update aur manage kar sakein
+
+ Aapka mobile contacts app → data database me store hota hai (naam, number)
+ Aapka student project → users ka data database me store hoga (name, email, password)
+
+ SQL Database (Relational Database)
+
+ Data tables me hota hai (rows + columns) — Excel sheet jaisa.
+
+Har table me relations hote hain (foreign keys).
+
+Example databases:
+
+PostgreSQL
+
+MySQL
+
+SQLite
+
+MS SQL Server
+
+
+Best use-case:
+
+Jab data structured ho
+
+Relations ho (e.g., users, orders, products)
+
+Consistency important ho
+
+NoSQL Database (Non-Relational)
+
+
+Tables nahi hote, mostly JSON documents hoti hain.
+
+Flexible hota hai — schema define karna zaroori nahi hota.
+
+Example databases:
+
+MongoDB
+
+
+
+Firebase Firestore
+
+Best use-case:
+
+Jab data frequently change hota ho (schema-less)
+
+Jaldi scale karna ho
+
+Real-time apps (chat apps, social media feeds)
+
+SQL vs NoSQL (Short Table)
+
+Feature	SQL   (Relational)	                      NoSQL (Non-Relational)
+Structure	  Tables (rows + columns)	              Documents (JSON) / Key-Value
+Schema	       Fixed schema                       Flexible schema
+Relations	  Strong support (JOINs)            	  Usually no joins
+Examples	  PostgreSQL, MySQL	                  MongoDB, Firebase
+Use Case	   Banking, ERP, eCommerce	              Social media, Real-time apps
+
+
+Morgan Kya Hai
+
+Jab bhi koi request aati hai (GET, POST, PUT, DELETE), Morgan uska log console me print karta hai.
+
+Ye aapko help karta hai request trace karne me aur debugging easy banata hai
+
+Morgan ka Use-Case
+
+Debugging easy ho jata hai (kis route pe request gayi)
+
+Response time track kar sakte ho
+
+Status codes dekh sakte ho (404, 500 detect karne me help)
+
+Morgan ek CCTV camera jaisa hai jo har request ka record rakhta hai — kisne kab request ki aur server ne kya reply diya.
+
+CORS Kya Hai
+
+CORS ka full form hai:
+Cross-Origin Resource Sharing
+
+Ye ek security feature hai jo browsers me hota hai.
+Ye decide karta hai ki ek domain ka frontend dusre domain ke backend se data le sakta hai ya nahi.
+
+Tumhara frontend chal raha hai:
+http://localhost:5173 (React/Vite)
+
+Tumhara backend chal raha hai:
+http://localhost:4000 (Express)
+
+cookie-parser Kya Hai
+cookie-parser ek middleware hai jo HTTP request ke cookies ko parse karke req.cookies me available kara deta hai.
+
+One-to-One Relationship (1:1)
+User – Profile
+
+Ek user ka sirf ek profile ho sakta hai.
+
+Aur ek profile sirf ek user ka hoga.
+
+
+One-to-One (1:1)
+
+Matlab ek record sirf ek aur record se link hoga.
+
+Example:
+
+Table Users aur Profiles
+
+Har user ka sirf ek profile hoga.
+
+Data save kaise hota hai?
+Usually ek table ke andar foreign key rakhi jati hai jo unique hoti hai.
+
+Users
+id | name
+---|-------
+1  | Ali
+
+Profiles
+id | user_id | bio
+---|---------|------
+1  |    1    | Hello, I’m Ali
+
+
+One-to-Many (1:N)
+
+Matlab ek record ke multiple related records ho sakte hain.
+
+Example:
+
+Ek User ke multiple Posts ho sakte hain.
+
+Data save kaise hota hai?
+Posts table ke andar user_id foreign key hoti hai.
+
+Users
+id | name
+---|-------
+1  | Ali
+
+Posts
+id | user_id | title
+---|---------|--------
+1  |    1    | First Post
+2  |    1    | Second Post
+
+3. Many-to-Many (M:N)
+
+ Matlab: dono taraf se bohot sare records link ho sakte hain.
+
+ Real Life Example:
+
+Students aur Courses
+
+Ek student multiple courses le sakta hai
+
+Aur ek course multiple students k pass ho sakta hai.
+
+📊 Database Example:
+
+Students
+id | name
+---|------
+1  | Ali
+2  | Sana
+
+Courses
+id | name
+---|------
+1  | Math
+2  | Science
+
+Student_Courses (Junction Table)
+student_id | course_id
+-----------|----------
+1          | 1   -- Ali → Math
+1          | 2   -- Ali → Science
+2          | 1   -- Sana → Math
+
+
+One-to-One → Ek admi ka ek CNIC
+
+One-to-Many → Ek teacher k multiple students
+
+Many-to-Many → Ek student k multiple courses aur ek course k multiple students
+
+
+Primary Key (PK)
+
+Har table me ek unique column hota hai jo har record ko identify karta hai.
+
+Ye repeat nahi hota aur null (empty) nahi hota.
+
+Jaise ID column.
+
+📊 Example:
+
+Users
+id | name
+---|------
+1  | Ali
+2  | Sana
+
+
+Foreign Key (FK)
+
+Ek table ka column jo dusri table ke Primary Key ko refer karta hai.
+
+Relationship banane ke liye use hoti hai.
+
+📊 Example:
+
+Posts
+id | user_id | title
+---|---------|---------
+1  |    1    | First Post
+2  |    1    | Second Post
+
+
+Primary Key → Table ka unique identifier (jaise CNIC number).
+
+Foreign Key → Dousri table ki primary key ka reference (jaise post kis user ki hai).
+
+userID → Foreign key jo user ko identify karti hai.
+

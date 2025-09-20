@@ -1,10 +1,17 @@
-import express from "express";
-import userRoutes from "./routes/userRoutes.js";
-const app = express();
-app.use(express.json()); // parse JSON body
-// Routes use kar raha ho ma
-app.use("/users", userRoutes);
+import pool from "./src/adaptere/postgres/adaptere.postgres.js";
+import app from "./app.js";
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+const PORT = 4000;
+pool
+  .connect()
+  .then(() => {
+    console.log("✅ PostgreSQL connected");
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at port: ${PORT}`);
+    });
+  })
 
+  .catch((err) => {
+    console.error("❌ Failed to connect to PostgreSQL:", err.message);
+    process.exit(1);
+  });
