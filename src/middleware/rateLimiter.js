@@ -13,8 +13,6 @@ export const apiLimiter = rateLimit({
 // "Too many requests from this IP, please try again later."
 //  Matlab: Agar koi user bahut zyada API calls kare (100 se upar within 15 min), to uska access temporarily block ho jayega.
 
-
-
 // Auth specific limiter
 export const authLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 min
@@ -28,6 +26,5 @@ export const authLimiter = rateLimit({
 // max: 5 → Ek IP sirf 5 requests per minute kar sakta hai.
 
 // message: Agar exceed ho gayi to:
-// "Too many login/register attempts, please try again later."
-
+// "Too many login/register attempts, please try again later.
 // 💡 Matlab: Login/Register routes pe brute force attack (bar bar password try karna) ko prevent karne ke liye.

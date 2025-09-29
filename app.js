@@ -8,12 +8,21 @@ import { apiLimiter } from "./src/middleware/rateLimiter.js";
 
 const app = express();
 
-app.use(cors());
+// Middlewares
+app.use(cors({
+  origin: "http://localhost:3000", // frontend ka URL
+  credentials: true               // cookie allow karega
+}));
+
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
-app.use("/v1/api/auth", authRoutes , apiLimiter);
 
+// Routes with limiter
+app.use("/v1/api/auth", apiLimiter, authRoutes);
+
+// Global error handler
 app.use(errorHandler);
 
 export default app;
+
