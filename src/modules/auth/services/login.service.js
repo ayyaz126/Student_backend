@@ -7,13 +7,12 @@ import pool from "../../../adaptere/postgres/adaptere.postgres.js";
   const result = await pool.query(query, [email]);
 
 
-  // Agar query ka result empty hai (yaani database me us email ka user exist hi nahi karta),
-  //  to turant error throw kar do → "User not found"
+
   if (result.rows.length === 0) {
     throw new Error("User not found");
   }
 
-  // agar karta hai to uska data user me save kar lo
+  
   const user = result.rows[0];
 
   const isMatch = await bcrypt.compare(password, user.password);

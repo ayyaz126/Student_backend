@@ -1,12 +1,10 @@
 import { registerUser } from "../services/register.service.js";
+import { registerSchema } from "../dto/register.dto.js"; // zod schema import
 
-export const registerController = async (req, res , next) => {
+export const registerController = async (req, res, next) => {
   try {
-    const { name, email, password } = req.body;
-
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
+  
+    const { name, email, password } = registerSchema.parse(req.body);
 
     const user = await registerUser(name, email, password);
 
@@ -15,6 +13,9 @@ export const registerController = async (req, res , next) => {
       user,
     });
   } catch (error) {
-    next(error);
+    if (error.errors) {    
+      return res.status(400).json({ errors: error.errors });
+    }
+    next(error); 
   }
 };
