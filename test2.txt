@@ -1,0 +1,60 @@
+ Multer kya hai?
+
+Multer ek Node.js middleware hai jo Express ke sath use hota hai —
+iska kaam hota hai file uploads handle karna, jaise:
+
+ image upload
+
+ PDF upload
+
+ video upload
+
+ audio upload
+
+ Multer ka kaam kaise chalta hai?
+
+Jab hum frontend se ek form bhejte hain jisme koi file ho (for example: user profile picture),
+to wo data normal JSON format me nahi jata, balkay multipart/form-data format me jata hai.
+
+Express by default sirf JSON data samajhta hai,
+isliye wo file data read nahi kar sakta 
+
+Yahan Multer beech me aata hai 
+
+➡️ Multer middleware request ko intercept karta hai
+➡️ File data ko process karta hai
+➡️ File ko server ke folder me save karta hai (jaise uploads/)
+➡️ Aur phir req.file (ya req.files) me file ka info attach kar deta hai.
+
+☁️ Cloudinary kya hai?
+
+Cloudinary ek cloud-based media management service hai —
+iska matlab ye ke ye platform tumhari:
+
+images
+
+videos
+
+PDFs
+waghera ko upload, store, optimize, aur deliver karne ka system provide karta hai.
+
+ Cloudinary ka main kaam kya hota hai?
+	
+	Tum server se (ya directly frontend se) image/video Cloudinary pe upload karte ho
+	Cloudinary tumhe ek secure URL deta hai jahan wo file online available hoti hai
+    Tum apni app me us URL ko use karke image ya video display kar sakte ho
+	Cloudinary automatically optimization karta hai (image compress kar deta hai without losing quality)
+	CDN (Content Delivery Network) ke zariye fast loading provide karta hai
+
+
+ import { CloudinaryStorage } from "multer-storage-cloudinary"
+bohot important hai agar tum Multer aur Cloudinary ko sath me use kar rahe ho.
+Chalo isko simple Roman Urdu mein step-by-step samajhte hain 
+
+ 1. multer-storage-cloudinary kya hota hai?
+ Ye ek npm package hai jo Multer aur Cloudinary ke beech bridge ka kaam karta hai.
+
+Normally, Multer sirf local storage (uploads/ folder) me file save karta hai,
+lekin is library ki madad se:
+
+Tum upload hone wali file directly Cloudinary pe save kar sakte ho 

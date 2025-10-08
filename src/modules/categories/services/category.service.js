@@ -19,3 +19,6 @@ export const createCategoryService = async (name, description) => {
 
   return result.rows[0];
 };
+
+
+

@@ -86,3 +86,12 @@ project/
 │-- middlewares/
 │   └── errorHandler.js
 │-- index.js server ka entry point
+
+
+git add .
+git commit -m "your commit message"
+git push origin main
+
+
+
+npm install multer cloudinary multer-storage-cloudinary

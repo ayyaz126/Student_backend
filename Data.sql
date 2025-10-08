@@ -32,3 +32,15 @@ CREATE TABLE categories (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
+CREATE TABLE expenses (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE, 
+  amount DECIMAL(10, 2) NOT NULL,
+  category_id INT REFERENCES categories(id) ON DELETE SET NULL, 
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+

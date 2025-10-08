@@ -20,3 +20,4 @@ export const sendEmail = async (to, subject, html) => {
   console.log("Preview URL: " + nodemailer.getTestMessageUrl(info));
   return info;
 };
+
